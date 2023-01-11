@@ -1,19 +1,42 @@
 #!/usr/bin/python3
+from sys import argv
+from calculator_1 import add, sub, mul, div
 
-if __name__ == "__main__":
-    """Handle basic arithmetic operations."""
-    from calculator_1 import add, sub, mul, div
-    import sys
+if __name__ == '__main__':
+    """
+    Handles basic operations
 
-    if len(sys.argv) - 1 != 3:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        sys.exit(1)
+    Performs basic operations like addition, substraction,
+    multiplication and division between two numbers.
 
-    ops = {"+": add, "-": sub, "*": mul, "/": div}
-    if sys.argv[2] not in list(ops.keys()):
-        print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
+    The program will execute an operation between two numbers
+    selected by the operator sent to the program.
+    """
+    l_av = len(argv) - 1
 
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
+    if l_av == 3:
+        operator = argv[2]
+        num_a = int(argv[1])
+        num_b = int(argv[3])
+        if operator == '+':
+            res = add(num_a, num_b)
+            print('{:d} + {:d} = {:d}'.format(num_a, num_b, res))
+            exit(0)
+        elif operator == '-':
+            res = sub(num_a, num_b)
+            print('{:d} - {:d} = {:d}'.format(num_a, num_b, res))
+            exit(0)
+        elif operator == '*':
+            res = mul(num_a, num_b)
+            print('{:d} * {:d} = {:d}'.format(num_a, num_b, res))
+            exit(0)
+        elif operator == '/':
+            res = div(num_a, num_b)
+            print('{:d} / {:d} = {:d}'.format(num_a, num_b, res))
+            exit(0)
+        else:
+            print('Unknown operator. Available operators: +, -, * and /')
+            exit(1)
+    else:
+        print('Usage: ./100-my_calculator.py <a> <operator> <b>')
+        exit(1)
