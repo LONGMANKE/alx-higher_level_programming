@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
-const languages = ['C is fun', 'Python is cool', 'Javascript is amazing'];
+// This is acomment ['C is fun', 'Python is cool', 'JavaScript is amazing'].forEach((e) => console.log(e));
 
-for (let i = 0; i < languages.length; ++i) {
-  console.log(languages[i]);
-}
+const msg = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+
+msg.forEach((element) => console.log(element));
